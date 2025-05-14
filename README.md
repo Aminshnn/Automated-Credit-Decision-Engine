@@ -1,1 +1,9 @@
 # Automated-Credit-Decision-Engine
+
+This project is about building an automated system to decide whether to approve or reject loan applications. It is inspired by the idea of an “Automated Credit Decision Engine” that uses a mix of simple decision rules, like in TRIAD systems, and machine learning methods. I used Lending Club loan data to train and test different models. At first, I applied ``decision trees`` because they can give us clear, rule-based outputs. This helps explain to managers or other stakeholders why a loan might be approved or rejected.
+
+For more advanced predictions, I also used black-box models like ``Random Forest``. Since these models are harder to interpret, I applied the ``treeinterpreter`` library to understand the contribution of each feature to the model’s prediction. Later, I used ``SHAP``, a popular explainability tool, to visualize and explain which variables made a loan seem risky or safe, providing a more reliable way to understand the model’s behavior.
+
+In the decision-making stage, I first used only the predicted probability of default. I optimized the threshold to decide when a loan should be rejected based on how risky it is. This simple rule alone increased the total profit by over **$329,000**. After that, I developed a more advanced approach. I predicted the potential profit if a loan is fully paid and the expected loss if it defaults. Then, using the probability of default, I calculated the expected profit for each loan and approved only those with a positive expected outcome. This improved the overall profit by more than **$731,000**.
+
+In short, this project shows how machine learning and explainable decision tools can work together to build a practical and effective loan approval system that balances profitability with transparency.
